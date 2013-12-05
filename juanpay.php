@@ -227,7 +227,7 @@ class plgVmPaymentJuanPay extends vmPSPlugin {
 
 		// add spin image
 		$html = '<html><head><title>Redirection</title></head><body><div style="margin: auto; text-align: center;">';
-		$html .= '<form action="' . "http://" . $url . '" method="post" name="vm_juanpay_form"  accept-charset="UTF-8">';
+		$html .= '<form action="' . "https://" . $url . '" method="post" name="vm_juanpay_form"  accept-charset="UTF-8">';
 		$html .= '<input type="submit"  value="' . JText::_('VMPAYMENT_JUANPAY_REDIRECT_MESSAGE') . '" />';
 		foreach ($post_variables as $name => $value) {
 			$html .= '<input type="hidden" name="' . $name . '" value="' . htmlspecialchars($value) . '" />';
@@ -609,7 +609,7 @@ class plgVmPaymentJuanPay extends vmPSPlugin {
 	 */
 	function _getJuanPayUrl($method) {
 
-		$url = $method->sandbox ? 'localhost:3000' : 'www.juanpay.ph';
+		$url = $method->sandbox ? 'sandbox.juanpay.ph' : 'www.juanpay.ph';
 
 		return $url;
 	}
