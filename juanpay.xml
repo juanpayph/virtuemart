@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<install version="1.5" type="plugin" group="vmpayment" >
+    <name>JuanPay Payment Gateway</name>
+    <creationDate>November 24 2013</creationDate>
+    <author>The VirtueMart Development Team</author>
+    <authorUrl>http://www.virtuemart.net</authorUrl>
+    <copyright>Copyright (C) 2004-2013 Virtuemart Team. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <version>2.0.24c</version>
+    <description><![CDATA[<a href="http://juanpay.com" target="_blank">JuanPay</a> is a popular
+	payment provider and available in many countries. ]]>
+    </description>
+
+    <files>
+	<filename plugin="juanpay">juanpay.php</filename>
+	<filename>juanpay.xml</filename>
+	<filename>index.html</filename>
+    </files>
+    <languages>
+	<language tag="en-GB">en-GB.plg_vmpayment_juanpay.ini</language>
+    </languages>
+    <params addpath="/administrator/components/com_virtuemart/elements">
+	<param type="vmjpluginwarning" />
+	<param type="spacer" default="VMPAYMENT_JUANPAY_PAYMENT_TITLE" level="level1" />
+
+	<param type="spacer" default="" level="level1" />
+	<param type="spacer" default="VMPAYMENT_JUANPAY_PAYMENT_SETTINGS" level="level1" />
+	<param	name="payment_logos" type="vmfiles" label="VMPAYMENT_JUANPAY_LOGOS"
+             	description="VMPAYMENT_JUANPAY_LOGOS_DESC"
+             	directory="/images/stories/virtuemart/payment"
+             	default="default" hide_default="1" hide_none="1"
+             	stripext="0"  exclude="^_" />
+
+	<param type="spacer" default="" level="level1" />
+	<param type="spacer" default="VMPAYMENT_JUANPAY_PARAMS" level="level1" />
+	<param type="text" name="juanpay_merchant_email"  size="50" label="VMPAYMENT_JUANPAY_EMAIL" default="" description="VMPAYMENT_JUANPAY_EMAIL_DESC" />
+    <param type="text" name="juanpay_api_key"  size="50" label="VMPAYMENT_JUANPAY_API_KEY" default="" description="VMPAYMENT_JUANPAY_API_KEY_DESC" />
+    <param type="text" name="sandbox_merchant_email" size="50" default="" label="VMPAYMENT_JUANPAY_SANDBOX_MERCHANT" description="VMPAYMENT_JUANPAY_SANDBOX_MERCHANT_DESC" />
+    <param type="text" name="sandbox_api_key"  size="50" label="VMPAYMENT_JUANPAY_SANDBOX_API_KEY" default="" description="VMPAYMENT_JUANPAY_SANDBOX_API_KEY_DESC" />
+
+	<param name="sandbox" type="radio" default="1" label="VMPAYMENT_JUANPAY_SANDBOX" description="VMPAYMENT_JUANPAY_SANDBOX_DESC" >
+	    <option value="0">COM_VIRTUEMART_NO</option>
+	    <option value="1">COM_VIRTUEMART_YES</option>
+	</param>
+	<param type="spacer" default="" level="level1" />
+	<param type="spacer" default="" level="level1" />
+	<param type="spacer" default="VMPAYMENT_JUANPAY_RESTRICTIONS" level="level1" />
+	     <!-- BY DEFAULT juanpay currency= vendor currency -->
+	<param name="payment_currency" type="vmacceptedcurrency" default="" label="VMPAYMENT_JUANPAY_CURRENCY" description="VMPAYMENT_JUANPAY_CURRENCY_DESC" />
+	<param name="email_currency" type="list" default="vendor" label="VMPAYMENT_JUANPAY_EMAIL_CURRENCY" description="VMPAYMENT_JUANPAY_EMAIL_CURRENCY_DESC"  >
+	    <option value="vendor">VMPAYMENT_JUANPAY_EMAIL_CURRENCY_VENDOR</option>
+	    <option value="payment">VMPAYMENT_JUANPAY_EMAIL_CURRENCY_PAYMENT</option>
+	</param>
+
+	<param name="countries" type="vmcountries"  scope="com_virtuemart" default="" label="VMPAYMENT_JUANPAY_COUNTRIES" description="VMPAYMENT_JUANPAY_COUNTRIES_DESC"/>
+	<param name="min_amount" type="text"  label="VMPAYMENT_JUANPAY_MIN_AMOUNT" description="VMPAYMENT_JUANPAY_MIN_AMOUNT_EXPLAIN" />
+	<param name="max_amount" type="text"  label="VMPAYMENT_JUANPAY_MAX_AMOUNT" description="VMPAYMENT_JUANPAY_MAX_AMOUNT_EXPLAIN" />
+	<param type="spacer" default="" level="level1" />
+	<param type="spacer" default="VMPAYMENT_JUANPAY_PAYMENT_PAGE" level="level1" />
+	<param name="status_paid" type="vmorderstate" scope="com_virtuemart" default="U" label="VMPAYMENT_JUANPAY_STATUS_PAID" description="VMPAYMENT_JUANPAY_STATUS_PAID_EXPLAIN" />
+	<param name="status_confirmed" type="vmorderstate" scope="com_virtuemart" default="C" label="VMPAYMENT_JUANPAY_STATUS_CONFIRMED" description="VMPAYMENT_JUANPAY_STATUS_CONFIRMED_EXPLAIN" />
+	<param name="status_underpaid" type="vmorderstate" scope="com_virtuemart" default="P" label="VMPAYMENT_JUANPAY_STATUS_UNDERPAID" description="VMPAYMENT_JUANPAY_STATUS_UNDERPAID_EXPLAIN" />
+	<param name="status_shipped" type="vmorderstate" scope="com_virtuemart" default="S" label="VMPAYMENT_JUANPAY_STATUS_SHIPPED" description="VMPAYMENT_JUANPAY_STATUS_SHIPPED_EXPLAIN" />
+
+        <param type="spacer" default="" level="level1" />
+        <!--param name="log_ipn" type="list" default="0" label="VMPAYMENT_JUANPAY_LOG_IPN" description="VMPAYMENT_JUANPAY_LOG_IPN_DESC" >
+	    <option value="0">COM_VIRTUEMART_NO</option>
+	    <option value="1">COM_VIRTUEMART_YES</option>
+	</param-->
+	<param name="debug" type="radio" default="0" label="VMPAYMENT_JUANPAY_DEBUG" description="VMPAYMENT_JUANPAY_DEBUG_DESC" >
+	    <option value="0">COM_VIRTUEMART_NO</option>
+	    <option value="1">COM_VIRTUEMART_YES</option>
+	</param>
+
+    </params>
+
+
+</install>
